@@ -1,2 +1,2 @@
-# luigi.nvim
-Utility functions for Luigi
+# python-utils.nvim
+Utility functions for Python and Luigi
