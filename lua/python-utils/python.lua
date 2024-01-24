@@ -5,7 +5,7 @@ local function escape_magic(pattern)
 end
 
 function M.get_class_module(callback)
-	vim.lsp.buf.type_definition({
+	vim.lsp.buf.definition({
 		on_list = function(definitions)
 			local type_def = definitions["items"][1]
 			local absolute_path = type_def["filename"]
