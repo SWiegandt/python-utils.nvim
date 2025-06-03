@@ -35,7 +35,11 @@ function M.get_class_module(callback)
 	})
 end
 
-function M.get_class_at_cursor(callback)
+function M.get_class_at_cursor(callback, mark)
+	if mark == nil then
+		mark = true
+	end
+
 	local ts_utils = require("nvim-treesitter.ts_utils")
 	local node = ts_utils.get_node_at_cursor()
 
@@ -53,7 +57,10 @@ function M.get_class_at_cursor(callback)
 
 	M.get_class_module(function(symbol_path)
 		callback(symbol_path)
-		vim.cmd('exe "normal ``"')
+
+		if mark then
+			vim.cmd('exe "normal ``"')
+		end
 	end)
 end
 
