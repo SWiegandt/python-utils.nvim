@@ -40,8 +40,7 @@ function M.get_class_at_cursor(callback, mark)
 		mark = true
 	end
 
-	local ts_utils = require("nvim-treesitter.ts_utils")
-	local node = ts_utils.get_node_at_cursor()
+	local node = vim.treesitter.get_node()
 
 	while node and node:type() ~= "class_definition" do
 		node = node:parent()
